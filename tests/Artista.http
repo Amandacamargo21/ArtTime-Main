@@ -9,12 +9,12 @@ POST https://localhost:5001/api/artista/cadastrar
 Content-Type: application/json
 
 {
-  "Nome": "amanda",
+  "Nome": "joao",
   "Genero": "f",
   "Cpf": "12132123131",
   "Contato":"219333",
   "DataAgendamento": "1/1/1",
-  "DataNascimento": "Agua"
+  "DataNascimento": "1/1/1"
 }
 
 ### Deletar um artist

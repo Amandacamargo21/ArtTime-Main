@@ -11,11 +11,11 @@ POST https://localhost:5001/api/agendameto/cadastrar
 Content-Type: application/json
 
 {
-  "Cliente": "aaaa",
-  "Cpf" : "123",
+  "Cliente": "amanda",
+  "Cpf" : "12345678901",
   "LocalDaTattoo": "mao",
-  "Artista": "j",
-  "DataAgendamento": ""
+  "Artista": "amanda",
+  "DataAgendamento": "2/10/2022"
 }
 
 ### Deletar um agendamento

@@ -171,3 +171,8 @@ C:\Users\amand\ArtTime-Main\obj\Debug\net5.0\ArtTime.dll
 C:\Users\amand\ArtTime-Main\obj\Debug\net5.0\ref\ArtTime.dll
 C:\Users\amand\ArtTime-Main\obj\Debug\net5.0\ArtTime.pdb
 C:\Users\amand\ArtTime-Main\obj\Debug\net5.0\ArtTime.genruntimeconfig.cache
+C:\Users\amand\ArtTime-Main\bin\Debug\net5.0\FRONT\angular.json
+C:\Users\amand\ArtTime-Main\bin\Debug\net5.0\FRONT\package-lock.json
+C:\Users\amand\ArtTime-Main\bin\Debug\net5.0\FRONT\package.json
+C:\Users\amand\ArtTime-Main\bin\Debug\net5.0\FRONT\tsconfig.app.json
+C:\Users\amand\ArtTime-Main\bin\Debug\net5.0\FRONT\tsconfig.json

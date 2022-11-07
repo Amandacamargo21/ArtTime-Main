@@ -24,7 +24,7 @@ namespace ArtTime.ArtistaController
             Ok(_context.Artistas.ToList());
 
 
-        //POST:  /api/funcionario/cadastrar
+        //POST:  /api/artista/cadastrar
         [HttpPost]
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Artista artista)

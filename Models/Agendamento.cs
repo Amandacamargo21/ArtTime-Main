@@ -12,14 +12,14 @@ namespace ArtTime.Models
 
         [Key()]
         public int Id { get; set; }
-        public int AgendamentoId { get; set; }
+        // public int AgendamentoId { get; set; }
         public string Cliente { get; set; }
         public string Cpf { get; set; }
         public string LocalDaTattoo { get; set; }
 
-        [ForeignKey("Artista")]
-        public int ArtistaId { get; set; }
-        public virtual Artista Artista { get; set; }
+        // [ForeignKey("Artista")]
+        // public int ArtistaId { get; set; }
+        public Artista Artista { get; set; }
         public string DataAgendamento { get; set; }
         public DateTime CriadoEm { get; set; }
     }

@@ -12,7 +12,7 @@ namespace ArtTime.AgendamentoController
     {
         private readonly DataContext _context;
 
-        public AgendamentoController (DataContext context) =>
+        public AgendamentoController(DataContext context) =>
             _context = context;
 
 
@@ -42,7 +42,7 @@ namespace ArtTime.AgendamentoController
             Agendamento agendamento =
                 _context.Agendamentos.FirstOrDefault
             (
-                f => f.AgendamentoId.Equals(cpf)
+                f => f.Cpf.Equals(cpf)
             );
             //IF ternário
             return agendamento != null ? Ok(agendamento) : NotFound();
@@ -52,7 +52,8 @@ namespace ArtTime.AgendamentoController
         // DELETE: /api/artista/deletar/1
         [Route("deletar/{id}")]
         [HttpDelete]
-         public IActionResult Deletar([FromRoute] int id){
+        public IActionResult Deletar([FromRoute] int id)
+        {
             Agendamento agendamento = _context.Agendamentos.Find(id);
             if (agendamento != null)
             {
