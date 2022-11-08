@@ -14,7 +14,7 @@ namespace ArtTime.Models
         public int Id { get; set; }
         // public int AgendamentoId { get; set; }
         public string Cliente { get; set; }
-        public string Cpf { get; set; }
+        public string cpf { get; set; }
         public string LocalDaTattoo { get; set; }
 
         // [ForeignKey("Artista")]

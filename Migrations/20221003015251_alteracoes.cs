@@ -16,10 +16,10 @@ namespace ArtTime.Migrations
                     ArtistaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     Genero = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
+                    cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
                     Contato = table.Column<string>(type: "TEXT", nullable: true),
                     DataAgendamento = table.Column<string>(type: "TEXT", nullable: true),
-                    DataNascimento = table.Column<string>(type: "TEXT", nullable: true),
+                    dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -35,7 +35,7 @@ namespace ArtTime.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     AgendamentoId = table.Column<int>(type: "INTEGER", nullable: false),
                     Cliente = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    cpf = table.Column<string>(type: "TEXT", nullable: true),
                     LocalDaTattoo = table.Column<string>(type: "TEXT", nullable: true),
                     ArtistaId = table.Column<int>(type: "INTEGER", nullable: false),
                     DataAgendamento = table.Column<string>(type: "TEXT", nullable: true),

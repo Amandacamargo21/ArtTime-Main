@@ -34,8 +34,8 @@ export class CadastrarArtistaComponent implements OnInit {
   cadastrar(): void {
     let artista: Artista = {
       nome: this.nome,
-      Cpf: this.cpf,
-      DataNascimento: this.dataNascimento,
+      cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
     };
 
     this.http

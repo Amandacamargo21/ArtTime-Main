@@ -16,9 +16,9 @@ namespace ArtTime.Models
         // [StringLength(
         //     11, //Máximo de caracteres
         //     MinimumLength = 11,
-        //     ErrorMessage = "CPF Invalido!"
+        //     ErrorMessage = "cpf Invalido!"
         // )]
-        public string Cpf { get; set; }
+        public string cpf { get; set; }
 
         public string dataNascimento { get; set; }
         public DateTime CriadoEm { get; set; }

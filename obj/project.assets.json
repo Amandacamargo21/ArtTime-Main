@@ -843,7 +843,7 @@
       ]
     },
     "Microsoft.Extensions.DependencyModel/5.0.0": {
-      "sha512": "umBECCoMC+sOUgm083yFr8SxTobUOcPFH4AXigdO2xJiszCHAnmeDl4qPphJt+oaJ/XIfV1wOjIts2nRnki61Q==",
+      "sha512": "umBECCoMC+sOUgm083yFr8SxTobUOcpfH4AXigdO2xJiszCHAnmeDl4qPphJt+oaJ/XIfV1wOjIts2nRnki61Q==",
       "type": "package",
       "path": "microsoft.extensions.dependencymodel/5.0.0",
       "files": [
@@ -1282,19 +1282,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amand\\.nuget\\packages\\": {}
+    "C:\\Users\\Gagliassi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amand\\ArtTime-Main\\ArtTime.csproj",
+      "projectUniqueName": "C:\\Users\\Gagliassi\\ArtTime-Main\\ArtTime.csproj",
       "projectName": "ArtTime",
-      "projectPath": "C:\\Users\\amand\\ArtTime-Main\\ArtTime.csproj",
-      "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amand\\ArtTime-Main\\obj\\",
+      "projectPath": "C:\\Users\\Gagliassi\\ArtTime-Main\\ArtTime.csproj",
+      "packagesPath": "C:\\Users\\Gagliassi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gagliassi\\ArtTime-Main\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\amand\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Gagliassi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

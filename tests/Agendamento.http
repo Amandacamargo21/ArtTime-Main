@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
   "Cliente": "amanda",
-  "Cpf" : "12345678901",
+  "cpf" : "12345678901",
   "LocalDaTattoo": "mao",
   "Artista": "amanda",
   "DataAgendamento": "2/10/2022"

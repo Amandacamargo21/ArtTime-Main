@@ -11,10 +11,10 @@ Content-Type: application/json
 {
   "Nome": "joao",
   "Genero": "f",
-  "Cpf": "12132123131",
+  "cpf": "12132123131",
   "Contato":"219333",
   "DataAgendamento": "1/1/1",
-  "DataNascimento": "1/1/1"
+  "dataNascimento": "1/1/1"
 }
 
 ### Deletar um artist
@@ -28,11 +28,11 @@ Content-Type: application/json
 {
   "Nome": "",
   "Gênero": "",
-  "Cpf": "",
+  "cpf": "",
   "Contato":"",
   "LocalDaTattoo":"",
   "DataAgendamento": "",
   "CompraNoLocal": "",
-  "DataNascimento": "",
+  "dataNascimento": "",
   "CriadoEm": ""
 }

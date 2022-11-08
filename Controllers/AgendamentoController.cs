@@ -42,7 +42,7 @@ namespace ArtTime.AgendamentoController
             Agendamento agendamento =
                 _context.Agendamentos.FirstOrDefault
             (
-                f => f.Cpf.Equals(cpf)
+                f => f.cpf.Equals(cpf)
             );
             //IF ternário
             return agendamento != null ? Ok(agendamento) : NotFound();

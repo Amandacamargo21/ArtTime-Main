@@ -11,7 +11,7 @@ namespace ArtTime.Migrations
                 table: "Artistas");
 
             migrationBuilder.AlterColumn<string>(
-                name: "Cpf",
+                name: "cpf",
                 table: "Artistas",
                 type: "TEXT",
                 nullable: true,
@@ -23,7 +23,7 @@ namespace ArtTime.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Cpf",
+                name: "cpf",
                 table: "Artistas",
                 type: "TEXT",
                 maxLength: 11,

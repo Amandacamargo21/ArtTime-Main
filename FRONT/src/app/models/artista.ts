@@ -1,7 +1,7 @@
 export interface Artista {
   artistaId?: number;
   nome: string;
-  Cpf: string;
-  DataNascimento: string;
+  cpf: string;
+  dataNascimento: string;
   criadoEm?: string;
 }
