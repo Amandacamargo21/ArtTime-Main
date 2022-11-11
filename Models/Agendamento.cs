@@ -18,7 +18,9 @@ namespace ArtTime.Models
 
         public int ArtistaId { get; set; }
         public Artista Artista { get; set; }
-        public string DataAgendamento { get; set; }
+        public int Dia { get; set; }
+        public int Mes { get; set; }
+        public int Ano { get; set; }
         public DateTime CriadoEm { get; set; }
     }
 }

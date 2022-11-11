@@ -2,78 +2,72 @@ using Microsoft.AspNetCore.Mvc;
 using ArtTime.Models;
 using System.Collections.Generic;
 using System.Linq;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace ArtTime.AgendamentoController
 {
-    [Route("api/agendameto")]
     [ApiController]
+    [Route("api/agendamento")]
     public class AgendamentoController : ControllerBase
     {
         private readonly DataContext _context;
-
         public AgendamentoController(DataContext context) =>
             _context = context;
 
 
-        private static List<Agendamento> agendamentos = new List<Agendamento>();
-
-        [HttpGet]
-        [Route("Listar")]
-        public IActionResult Listar() =>
-            Ok(_context.Agendamentos.ToList());
-
-
-        //POST:  /api/funcionario/cadastrar
+        // POST: /api/folha/cadastrar
         [HttpPost]
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Agendamento agendamento)
         {
-            _context.Agendamentos.Add(agendamento);
-            _context.SaveChanges();
-            return Created("", agendamento);
-        }
-
-        [Route("buscar/{cpf}")]
-        [HttpGet]
-        public IActionResult Buscar([FromRoute] string cpf)
-        {
-            //Expressão lambda
-            Agendamento agendamento =
-                _context.Agendamentos.FirstOrDefault
-            (
-                f => f.cpf.Equals(cpf)
-            );
-            //IF ternário
-            return agendamento != null ? Ok(agendamento) : NotFound();
-        }
-
-
-        // DELETE: /api/artista/deletar/1
-        [Route("deletar/{id}")]
-        [HttpDelete]
-        public IActionResult Deletar([FromRoute] int id)
-        {
-            Agendamento agendamento = _context.Agendamentos.Find(id);
-            if (agendamento != null)
             {
-                _context.Agendamentos.Remove(agendamento);
+                _context.Agendamentos.Add(agendamento);
                 _context.SaveChanges();
-                return Ok(agendamento);
+                return Created("", agendamento);
             }
-            return NotFound();
         }
-
-        // PATCH: /api/artista/alterar
-        [Route("alterar")]
-        [HttpPatch]
-
-        public IActionResult Alterar([FromBody] Agendamento agendamento)
+        // GET: /api/agendamento/listar
+        [HttpGet]
+        [Route("listar")]
+        public IActionResult Listar()
         {
+            List<Agendamento> agendamentos =
+                _context.Agendamentos.Include(a => a.Artista).ToList();
 
-            _context.Agendamentos.Update(agendamento);
-            _context.SaveChanges();
-            return Ok(agendamento);
+            if (agendamentos.Count == 0) return NotFound();
+
+            return Ok(agendamentos);
+            // return folhas.Count != 0 ? Ok(folhas) : NotFound();
         }
+
+        // GET: /api/artista/buscar/{cpf}/{mes}/{ano}
+        [HttpGet]
+        [Route("buscar/{cpf}/{mes}/{ano}")]
+        public IActionResult Buscar(
+            [FromRoute] string cpf, int mes, int ano
+        ) =>
+            Ok(_context.Agendamentos
+                .Include(a => a.Artista)
+                .FirstOrDefault(
+                    a =>
+                    a.Artista.cpf.Equals(cpf) &&
+                    a.Mes == mes &&
+                    a.Ano == ano
+                ));
+
+        // GET: /api/artista/filtrar/{mes}/{ano}
+        [HttpGet]
+        [Route("filtrar/{mes}/{ano}")]
+        public IActionResult Filtrar(
+            [FromRoute] int mes, int ano
+        ) =>
+            Ok(_context.Agendamentos
+                .Include(f => f.Artista)
+                .Where(
+                    a =>
+                    a.CriadoEm.Month == mes &&
+                    a.CriadoEm.Year == ano
+                ));
+
     }
 }

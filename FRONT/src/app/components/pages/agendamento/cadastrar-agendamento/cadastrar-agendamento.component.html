@@ -1,0 +1,25 @@
+<h2>Cadastrar Agendamento</h2>
+
+<div id="Cliente">
+  <label for="txtCliente">Nome</label>
+  <input type="string" id="txtCliente" [(ngModel)]="Cliente" />
+</div>
+<div id="cpf">
+  <label for="txtCpf">CPF</label>
+  <input type="string" id="txtCpf" [(ngModel)]="cpf" />
+</div>
+<div id="LocalDaTattoo">
+  <label for="txtLocalDaTattoo">Local da Tattoo</label>
+  <input type="string" id="txtLocalDaTattoo" [(ngModel)]="LocalDaTattoo" />
+</div>
+<div id="Artistas">
+  <label for="selArtistas">Artistas</label>
+  <select [(ngModel)]="ArtistaId">
+    <option *ngFor="let artista of artistas" value="{{ artista.ArtistaId }}">
+      {{ artista.ArtistaId }} - {{ artista.nome }}
+    </option>
+  </select>
+</div>
+<div id="botao">
+  <button id="btnCadastrar" (click)="cadastrar()">Cadastrar</button>
+</div>

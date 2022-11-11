@@ -1,3 +1,4 @@
+import { CadastrarAgendamentoComponent } from "./components/pages/agendamento/cadastrar-agendamento/cadastrar-agendamento.component";
 import { ListarArtistaComponent } from "./components/pages/artista/listar-artista/listar-artista.component";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
@@ -13,6 +14,7 @@ import { CadastrarArtistaComponent } from "./components/pages/artista/cadastrar-
     AppComponent,
     CadastrarArtistaComponent,
     ListarArtistaComponent,
+    CadastrarAgendamentoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
