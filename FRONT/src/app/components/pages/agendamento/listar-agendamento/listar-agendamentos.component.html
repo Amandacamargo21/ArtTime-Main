@@ -1,0 +1,27 @@
+<h1>Listar Agendamentos</h1>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Nome</th>
+    <th>cpf</th>
+    <th>Local Da Tattoo</th>
+    <th>Criado em</th>
+    <th>Remover</th>
+    <th>Alterar</th>
+  </tr>
+
+  <tr *ngFor="let agendamento of agendamentos">
+    <td>{{ agendamento.id }}</td>
+    <td>{{ agendamento.Cliente }}</td>
+    <td>{{ agendamento.cpf }}</td>
+    <td>{{ agendamento.LocalDaTattoo }}</td>
+    <td>{{ agendamento.criadoEm }}</td>
+    <!-- <td>
+      <button (click)="remover(agendamento.id!)">Remover</button>
+    </td>
+     <td> 
+      <a routerLink="/pages/agendamento/cadastrar/{{ agendamento.id }}">Alterar</a>
+    </td> -->
+  </tr>
+</table>

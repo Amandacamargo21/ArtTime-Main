@@ -1,0 +1,11 @@
+.erro {
+  color: brown;
+}
+.input {
+  width: 50%;
+  display: flex;
+}
+
+.container {
+  margin: 18px;
+}

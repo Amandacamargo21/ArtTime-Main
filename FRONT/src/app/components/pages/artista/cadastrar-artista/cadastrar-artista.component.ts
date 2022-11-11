@@ -1,5 +1,4 @@
 import { HttpClient } from "@angular/common/http";
-import { Call } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Artista } from "src/app/models/artista";
@@ -10,12 +9,12 @@ import { Artista } from "src/app/models/artista";
   styleUrls: ["./cadastrar-artista.component.css"],
 })
 export class CadastrarArtistaComponent implements OnInit {
-  id!: number;
+  id!: string;
   nome!: string;
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
-  Artistaid!: string;
+  // Artistaid!: string;
 
   constructor(
     private http: HttpClient,
@@ -26,10 +25,37 @@ export class CadastrarArtistaComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe({
       next: (params) => {
-        let { id, cpf } = params;
-        this.id = id;
+        let { id } = params;
+        if (id !== undefined) {
+          this.http
+            .get<Artista>(`https://localhost:5001/api/artista/buscar/${id}`)
+            .subscribe({
+              next: (Artista) => {
+                this.id = id;
+                this.nome = Artista.nome;
+                this.cpf = Artista.cpf;
+              },
+            });
+        }
       },
     });
+  }
+
+  alterar(): void {
+    let artista: Artista = {
+      ArtistaId: Number.parseInt(this.id),
+      nome: this.nome,
+      cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
+    };
+
+    this.http
+      .patch<Artista>("https://localhost:5001/api/artista/alterar", artista)
+      .subscribe({
+        next: (artista) => {
+          this.router.navigate(["pages/artista/listar"]);
+        },
+      });
   }
 
   cadastrar(): void {
@@ -37,7 +63,6 @@ export class CadastrarArtistaComponent implements OnInit {
       nome: this.nome,
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
-      ArtistaId: 0,
     };
 
     this.http

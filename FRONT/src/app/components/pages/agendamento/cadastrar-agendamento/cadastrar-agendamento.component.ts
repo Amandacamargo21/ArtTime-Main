@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./cadastrar-agendamento.component.css"],
 })
 export class CadastrarAgendamentoComponent implements OnInit {
+  id!: number;
   Cliente!: string;
   cpf!: string;
   LocalDaTattoo!: string;
@@ -41,6 +42,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
       Mes: dataConvertida.getMonth() + 1,
       Ano: dataConvertida.getFullYear(),
       ArtistaId: this.ArtistaId,
+      id: this.id,
     };
 
     this.http
@@ -50,7 +52,33 @@ export class CadastrarAgendamentoComponent implements OnInit {
       )
       .subscribe({
         next: (Agendamento) => {
-          this.router.navigate(["pages/artista/listar"]);
+          this.router.navigate(["pages/agendamento/listar"]);
+        },
+      });
+  }
+
+  alterar(): void {
+    console.log(this.id);
+    let dataConvertida = new Date(this.data);
+    let Agendamento: Agendamento = {
+      id: this.id,
+      Cliente: this.Cliente,
+      cpf: this.cpf,
+      LocalDaTattoo: this.LocalDaTattoo,
+      Dia: dataConvertida.getDay(),
+      Mes: dataConvertida.getMonth() + 1,
+      Ano: dataConvertida.getFullYear(),
+      ArtistaId: this.ArtistaId,
+    };
+
+    this.http
+      .patch<Agendamento>(
+        "https://localhost:5001/api/agendamento/alterar",
+        Agendamento
+      )
+      .subscribe({
+        next: (agendamento) => {
+          this.router.navigate(["pages/agendamento/listar"]);
         },
       });
   }
