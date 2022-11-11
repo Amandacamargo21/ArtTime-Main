@@ -2,10 +2,10 @@
   color: brown;
 }
 .input {
-  width: 50%;
-  display: flex;
+  width: 100%;
+  display: block;
 }
 
 .container {
-  margin: 18px;
+  margin: 20px;
 }
