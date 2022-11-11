@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtTime.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221003015251_alteracoes")]
-    partial class alteracoes
+    [Migration("20221111012426_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,16 +24,10 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AgendamentoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("ArtistaId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cliente")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CriadoEm")
@@ -43,6 +37,9 @@ namespace ArtTime.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LocalDaTattoo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -58,30 +55,16 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ArtistaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Contato")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("cpf")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DataAgendamento")
+                    b.Property<string>("Nome")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("dataNascimento")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Genero")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

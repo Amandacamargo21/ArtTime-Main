@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtTime.Migrations
 {
-    public partial class alteracoes : Migration
+    public partial class a : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,8 @@ namespace ArtTime.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Genero = table.Column<string>(type: "TEXT", nullable: true),
-                    cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
-                    Contato = table.Column<string>(type: "TEXT", nullable: true),
-                    DataAgendamento = table.Column<string>(type: "TEXT", nullable: true),
+                    cpf = table.Column<string>(type: "TEXT", nullable: true),
                     dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -33,7 +29,6 @@ namespace ArtTime.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AgendamentoId = table.Column<int>(type: "INTEGER", nullable: false),
                     Cliente = table.Column<string>(type: "TEXT", nullable: true),
                     cpf = table.Column<string>(type: "TEXT", nullable: true),
                     LocalDaTattoo = table.Column<string>(type: "TEXT", nullable: true),

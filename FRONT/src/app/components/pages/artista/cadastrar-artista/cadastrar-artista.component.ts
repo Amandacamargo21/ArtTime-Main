@@ -10,11 +10,12 @@ import { Artista } from "src/app/models/artista";
   styleUrls: ["./cadastrar-artista.component.css"],
 })
 export class CadastrarArtistaComponent implements OnInit {
+  id!: number;
   nome!: string;
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
-  id!: string;
+  Artistaid!: string;
 
   constructor(
     private http: HttpClient,

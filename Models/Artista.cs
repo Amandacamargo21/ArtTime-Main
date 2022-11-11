@@ -7,10 +7,7 @@ namespace ArtTime.Models
     public class Artista
     {
         public Artista() => CriadoEm = DateTime.Now;
-
-        [Key()]
         public int Id { get; set; }
-        // public int ArtistaId { get; set; }
         public string Nome { get; set; }
         // [Required(ErrorMessage = "O campo cpf é obrigatório!")]
         // [StringLength(

@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>#</th>
+    <th>ID</th>
     <th>Nome</th>
     <th>cpf</th>
     <th>Data de Nascimento</th>
@@ -12,19 +12,16 @@
   </tr>
 
   <tr *ngFor="let artista of artistas">
-    <td>{{ artista.artistaId }}</td>
+    <td>{{ artista.id }}</td>
     <td>{{ artista.nome }}</td>
     <td>{{ artista.cpf }}</td>
     <td>{{ artista.dataNascimento }}</td>
     <td>{{ artista.criadoEm }}</td>
     <td>
-      <button (click)="remover(artista.artistaId!)">Remover</button>
+      <button (click)="remover(artista.id!)">Remover</button>
     </td>
     <td>
-      <a routerLink="/pages/artista/cadastrar/
-      {{ artista.artistaId }}"
-        >Alterar</a
-      >
+      <a routerLink="/pages/artista/cadastrar/{{ artista.id }}">Alterar</a>
     </td>
   </tr>
 </table>

@@ -22,7 +22,7 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ArtistaId")
+                    b.Property<int>("ArtistaId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cliente")
@@ -74,7 +74,9 @@ namespace ArtTime.Migrations
                 {
                     b.HasOne("ArtTime.Models.Artista", "Artista")
                         .WithMany()
-                        .HasForeignKey("ArtistaId");
+                        .HasForeignKey("ArtistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Artista");
                 });
