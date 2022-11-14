@@ -9,5 +9,6 @@ namespace ArtTime.Models
 
         public DbSet<Artista> Artistas { get; set; }
         public DbSet<Agendamento> Agendamentos { get; set; }
+         public DbSet<Cliente> Clientes { get; set; }
     }
 }

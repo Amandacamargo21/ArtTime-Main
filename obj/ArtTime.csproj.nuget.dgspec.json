@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amand\\ArtTime-Main-1\\ArtTime.csproj": {}
+    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amand\\ArtTime-Main-1\\ArtTime.csproj": {
+    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amand\\ArtTime-Main-1\\ArtTime.csproj",
+        "projectUniqueName": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj",
         "projectName": "ArtTime",
-        "projectPath": "C:\\Users\\amand\\ArtTime-Main-1\\ArtTime.csproj",
-        "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amand\\ArtTime-Main-1\\obj\\",
+        "projectPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj",
+        "packagesPath": "C:\\Users\\Gagliassi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\amand\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Gagliassi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

@@ -12,12 +12,14 @@ namespace ArtTime.Models
 
         [Key]
         public int Id { get; set; }
-        public string Cliente { get; set; }
+        public string Pessoa { get; set; }
         public string cpf { get; set; }
         public string LocalDaTattoo { get; set; }
 
         public int ArtistaId { get; set; }
         public Artista Artista { get; set; }
+         public int ClienteId { get; set; }
+        public Cliente Cliente { get; set; }
         public int Dia { get; set; }
         public int Mes { get; set; }
         public int Ano { get; set; }

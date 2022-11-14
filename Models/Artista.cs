@@ -19,6 +19,5 @@ namespace ArtTime.Models
 
         public string dataNascimento { get; set; }
         public DateTime CriadoEm { get; set; }
-
     }
 }
