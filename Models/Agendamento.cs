@@ -18,7 +18,7 @@ namespace ArtTime.Models
 
         public int ArtistaId { get; set; }
         public Artista Artista { get; set; }
-         public int ClienteId { get; set; }
+        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
         public int Dia { get; set; }
         public int Mes { get; set; }

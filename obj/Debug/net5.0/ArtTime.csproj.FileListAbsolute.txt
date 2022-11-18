@@ -368,3 +368,9 @@ C:\Users\Gagliassi\Desktop\ArtTime-Main-1\obj\Debug\net5.0\ArtTime.dll
 C:\Users\Gagliassi\Desktop\ArtTime-Main-1\obj\Debug\net5.0\ref\ArtTime.dll
 C:\Users\Gagliassi\Desktop\ArtTime-Main-1\obj\Debug\net5.0\ArtTime.pdb
 C:\Users\Gagliassi\Desktop\ArtTime-Main-1\obj\Debug\net5.0\ArtTime.genruntimeconfig.cache
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\FRONT\angular.json
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\FRONT\package.json
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\FRONT\tsconfig.app.json
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\FRONT\tsconfig.json
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\FRONT\package-lock.json
+C:\Users\Gagliassi\Desktop\ArtTime-Main\bin\Debug\net5.0\package-lock.json

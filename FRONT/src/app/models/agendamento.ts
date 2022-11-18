@@ -1,6 +1,6 @@
 export interface Agendamento {
   id?: number;
-  Cliente: string;
+  Pessoa: string;
   cpf: string;
   LocalDaTattoo: string;
   ArtistaId: number;

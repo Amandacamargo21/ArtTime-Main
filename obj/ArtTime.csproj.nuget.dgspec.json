@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj": {}
+    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main\\ArtTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj": {
+    "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main\\ArtTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj",
+        "projectUniqueName": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main\\ArtTime.csproj",
         "projectName": "ArtTime",
-        "projectPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\ArtTime.csproj",
+        "projectPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main\\ArtTime.csproj",
         "packagesPath": "C:\\Users\\Gagliassi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main-1\\obj\\",
+        "outputPath": "C:\\Users\\Gagliassi\\Desktop\\ArtTime-Main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gagliassi\\AppData\\Roaming\\NuGet\\NuGet.Config"

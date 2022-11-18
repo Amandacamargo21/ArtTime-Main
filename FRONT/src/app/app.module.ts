@@ -16,6 +16,9 @@ import { ListarArtistaComponent } from "./components/pages/artista/listar-artist
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CadastrarArtistaComponent } from "./components/pages/artista/cadastrar-artista/cadastrar-artista.component";
+import { CadastrarClienteComponent } from "./components/pages/cliente/cadastrar-cliente/cadastrar-cliente.component";
+import { ListarClienteComponent } from "./components/pages/cliente/listar-cliente/listar-cliente.component";
+
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
@@ -25,6 +28,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ListarArtistaComponent,
     CadastrarAgendamentoComponent,
     ListarAgendamentoComponent,
+    CadastrarClienteComponent,
+    ListarClienteComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Agendamento } from "src/app/models/agendamento";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Cliente } from "src/app/models/cliente";
 
 @Component({
   selector: "app-cadastrar-agendamento",
@@ -11,11 +12,13 @@ import { Router } from "@angular/router";
 })
 export class CadastrarAgendamentoComponent implements OnInit {
   id!: number;
-  Cliente!: string;
+  Pessoa!: string;
   cpf!: string;
   LocalDaTattoo!: string;
   artistas!: Artista[];
   ArtistaId!: number;
+  clientes!: Cliente[];
+  ClienteId!: number;
   data!: string;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -35,7 +38,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
     let dataConvertida = new Date(this.data);
 
     let Agendamento: Agendamento = {
-      Cliente: this.Cliente,
+      Pessoa: this.Pessoa,
       cpf: this.cpf,
       LocalDaTattoo: this.LocalDaTattoo,
       Dia: dataConvertida.getDay(),
@@ -62,7 +65,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
     let dataConvertida = new Date(this.data);
     let Agendamento: Agendamento = {
       id: this.id,
-      Cliente: this.Cliente,
+      Pessoa: this.Pessoa,
       cpf: this.cpf,
       LocalDaTattoo: this.LocalDaTattoo,
       Dia: dataConvertida.getDay(),

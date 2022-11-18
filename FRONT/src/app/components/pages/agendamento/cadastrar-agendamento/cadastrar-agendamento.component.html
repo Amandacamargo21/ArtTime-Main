@@ -9,9 +9,9 @@
       <mat-label for="id">Id:</mat-label>
       <input disabled="" matInput type="text" name="id" [(ngModel)]="id" />
     </mat-form-field>
-    <mat-form-field class="input" id="Cliente">
-      <mat-label for="Cliente">Nome:</mat-label>
-      <input matInput type="text" name="Cliente" [(ngModel)]="Cliente" />
+    <mat-form-field class="input" id="Pessoa">
+      <mat-label for="Pessoa">Nome:</mat-label>
+      <input matInput type="text" name="Pessoa" [(ngModel)]="Pessoa" />
     </mat-form-field>
 
     <mat-form-field class="input" id="cpf">
@@ -37,6 +37,18 @@
           value="{{ artista.ArtistaId }}"
         >
           {{ artista.ArtistaId }} - {{ artista.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field id="Clientes">
+      <mat-label for="selClientes">Clientes</mat-label>
+      <mat-select [(ngModel)]="ClienteId">
+        <mat-option
+          *ngFor="let cliente of clientes"
+          value="{{ cliente.ClienteId }}"
+        >
+          {{ cliente.ClienteId }} - {{ cliente.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>

@@ -1,0 +1,25 @@
+<h1>Listar Cliente</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>cpf</th>
+    <th>Criado em</th>
+    <th>Remover</th>
+    <th>Alterar</th>
+  </tr>
+
+  <tr *ngFor="let cliente of clientes">
+    <td>{{ cliente.id }}</td>
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.cpf }}</td>
+    <td>{{ cliente.criadoEm }}</td>
+    <td>
+      <button (click)="remover(cliente.id!)">Remover</button>
+    </td>
+    <td>
+      <a routerLink="/pages/cliente/listar{ cliente.id }}">Alterar</a>
+    </td>
+  </tr>
+</table>
