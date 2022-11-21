@@ -62,5 +62,17 @@ namespace ArtTime.ArtistaController
             _context.SaveChanges();
             return Ok(artista);
         }
+
+        // GET: /api/artista/buscar/1
+        [Route("buscar/{id}")]
+        [HttpGet]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            //Expressão lambda
+            Artista artista =
+                _context.Artistas.Find(id);
+            //IF ternário
+            return artista != null ? Ok(artista) : NotFound();
+        }
     }
 }
