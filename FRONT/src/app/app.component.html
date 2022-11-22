@@ -1,15 +1,34 @@
-<a routerLink="/pages/artista/cadastrar">Cadastrar Artista</a>
+<mat-toolbar color="accent">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>ArtTime Tattoo</span>
+</mat-toolbar>
 
-<a routerLink="/pages/artista/listar">Listar Artista</a>
-
-<a routerLink="/pages/agendamento/cadastrar">Cadastrar Agendamento</a>
-
-<a routerLink="/pages/agendamento/listar">Listar Agendamento</a>
-
-<a routerLink="/pages/cliente/cadastrar">Cadastrar Cliente</a>
-
-<a routerLink="/pages/cliente/listar">Listar Cliente</a>
-
-<router-outlet>
-  <!-- é aqui que os componentes entram-->
-</router-outlet>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/pages/artista/cadastrar"
+        ><mat-icon class="icon">person_add</mat-icon> Cadastrar Artista</a
+      >
+      <a mat-list-item routerLink="/pages/artista/listar"
+        ><mat-icon class="icon">list</mat-icon>Listar Artista</a
+      >
+      <a mat-list-item routerLink="/pages/agendamento/cadastrar"
+        ><mat-icon class="icon">person_add</mat-icon>Cadastrar Agendamento</a
+      >
+      <a mat-list-item routerLink="/pages/agendamento/listar"
+        ><mat-icon class="icon">list</mat-icon>Listar Agendamento</a
+      >
+      <a mat-list-item routerLink="/pages/cliente/cadastrar"
+        ><mat-icon class="icon">person_add</mat-icon>Cadastrar Cliente</a
+      >
+      <a mat-list-item routerLink="/pages/cliente/listar"
+        ><mat-icon class="icon">list</mat-icon>Listar Cliente</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet> </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

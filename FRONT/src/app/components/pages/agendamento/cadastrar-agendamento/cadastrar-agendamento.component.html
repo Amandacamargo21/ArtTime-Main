@@ -1,5 +1,3 @@
-<h2>Cadastrar Agendamento</h2>
-
 <mat-card class="container">
   <mat-card-header>
     <mat-card-title>Cadastrar Agendamento</mat-card-title>
@@ -9,6 +7,7 @@
       <mat-label for="id">Id:</mat-label>
       <input disabled="" matInput type="text" name="id" [(ngModel)]="id" />
     </mat-form-field>
+
     <mat-form-field class="input" id="Pessoa">
       <mat-label for="Pessoa">Nome:</mat-label>
       <input matInput type="text" name="Pessoa" [(ngModel)]="Pessoa" />
@@ -29,7 +28,7 @@
       />
     </mat-form-field>
 
-    <mat-form-field id="Artistas">
+    <mat-form-field id="artistas" class="input">
       <mat-label for="selArtistas">Artistas</mat-label>
       <mat-select [(ngModel)]="ArtistaId">
         <mat-option
@@ -41,7 +40,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field id="Clientes">
+    <mat-form-field id="clientes" class="input">
       <mat-label for="selClientes">Clientes</mat-label>
       <mat-select [(ngModel)]="ClienteId">
         <mat-option

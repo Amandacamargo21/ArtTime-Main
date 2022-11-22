@@ -29,10 +29,5 @@ Content-Type: application/json
   "Nome": "",
   "Gênero": "",
   "cpf": "",
-  "Contato":"",
-  "LocalDaTattoo":"",
-  "DataAgendamento": "",
-  "CompraNoLocal": "",
-  "dataNascimento": "",
   "CriadoEm": ""
 }

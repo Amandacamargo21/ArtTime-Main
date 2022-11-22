@@ -1,6 +1,7 @@
 import { Artista } from "src/app/models/artista";
 import { Agendamento } from "src/app/models/agendamento";
 import { HttpClient } from "@angular/common/http";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Cliente } from "src/app/models/cliente";
@@ -21,7 +22,11 @@ export class CadastrarAgendamentoComponent implements OnInit {
   ClienteId!: number;
   data!: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.http
@@ -37,7 +42,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
     console.log(this.ArtistaId);
     let dataConvertida = new Date(this.data);
 
-    let Agendamento: Agendamento = {
+    let agendamento: Agendamento = {
       Pessoa: this.Pessoa,
       cpf: this.cpf,
       LocalDaTattoo: this.LocalDaTattoo,
@@ -45,16 +50,19 @@ export class CadastrarAgendamentoComponent implements OnInit {
       Mes: dataConvertida.getMonth() + 1,
       Ano: dataConvertida.getFullYear(),
       ArtistaId: this.ArtistaId,
-      id: this.id,
     };
 
     this.http
       .post<Agendamento>(
         "https://localhost:5001/api/agendamento/cadastrar",
-        Agendamento
+        agendamento
       )
       .subscribe({
-        next: (Agendamento) => {
+        next: (agendamento) => {
+          this._snackBar.open("Agendamento cadastrado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
           this.router.navigate(["pages/agendamento/listar"]);
         },
       });
