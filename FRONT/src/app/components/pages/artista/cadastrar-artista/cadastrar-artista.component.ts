@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Artista } from "src/app/models/artista";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-cadastrar-artista",
@@ -19,7 +20,8 @@ export class CadastrarArtistaComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +55,10 @@ export class CadastrarArtistaComponent implements OnInit {
       .patch<Artista>("https://localhost:5001/api/artista/alterar", artista)
       .subscribe({
         next: (artista) => {
+          this._snackBar.open("Artista alterado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
           this.router.navigate(["pages/artista/listar"]);
         },
       });
@@ -71,7 +77,10 @@ export class CadastrarArtistaComponent implements OnInit {
       //Executar a requisição
       .subscribe({
         next: (artista) => {
-          //Executamos o que for necessário quando a requisição for bem sucedida
+          this._snackBar.open("Artista cadastrado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
           this.router.navigate(["pages/artista/listar"]);
         },
         error: (error) => {

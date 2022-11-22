@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Cliente } from "src/app/models/cliente";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-cadastrar-cliente",
@@ -14,12 +15,13 @@ export class CadastrarClienteComponent implements OnInit {
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
-  // Clieinteid!: string;
+  //ClienteId!: number;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +54,10 @@ export class CadastrarClienteComponent implements OnInit {
       .patch<Cliente>("https://localhost:5001/api/cliente/alterar", cliente)
       .subscribe({
         next: (cliente) => {
+          this._snackBar.open("Cliente alterado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
           this.router.navigate(["pages/cliente/listar"]);
         },
       });
@@ -69,7 +75,10 @@ export class CadastrarClienteComponent implements OnInit {
       //Executar a requisição
       .subscribe({
         next: (cliente) => {
-          //Executamos o que for necessário quando a requisição for bem sucedida
+          this._snackBar.open("Cliente cadastrado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
           this.router.navigate(["pages/cliente/listar"]);
         },
         error: (error) => {
