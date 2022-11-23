@@ -14,8 +14,6 @@ namespace ArtTime.ArtistaController
 
         public ArtistaController(DataContext context) =>
             _context = context;
-
-
         private static List<Artista> artistas = new List<Artista>();
 
         [HttpGet]
@@ -54,10 +52,8 @@ namespace ArtTime.ArtistaController
         // PATCH: /api/artista/alterar
         [Route("alterar")]
         [HttpPatch]
-
         public IActionResult Alterar([FromBody] Artista artista)
         {
-
             _context.Artistas.Update(artista);
             _context.SaveChanges();
             return Ok(artista);
@@ -68,7 +64,6 @@ namespace ArtTime.ArtistaController
         [HttpGet]
         public IActionResult Buscar([FromRoute] int id)
         {
-            //Expressão lambda
             Artista artista =
                 _context.Artistas.Find(id);
             //IF ternário

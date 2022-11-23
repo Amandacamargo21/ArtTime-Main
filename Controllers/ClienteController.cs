@@ -14,8 +14,6 @@ namespace ArtTime.CLienteController
 
         public CLienteController(DataContext context) =>
             _context = context;
-
-
         private static List<Cliente> clientes = new List<Cliente>();
 
         [HttpGet]
@@ -53,13 +51,21 @@ namespace ArtTime.CLienteController
         // PATCH: /api/cliente/alterar
         [Route("alterar")]
         [HttpPatch]
-
         public IActionResult Alterar([FromBody] Cliente cliente)
         {
-
             _context.Clientes.Update(cliente);
             _context.SaveChanges();
             return Ok(cliente);
+        }
+
+        // GET: /api/cliente/buscar/1
+        [Route("buscar/{id}")]
+        [HttpGet]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            Cliente cliente =
+                _context.Clientes.Find(id);
+            return cliente != null ? Ok(cliente) : NotFound();
         }
     }
 }

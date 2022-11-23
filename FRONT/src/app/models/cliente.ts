@@ -1,8 +1,7 @@
 export interface Cliente {
-    id?: number;
-    ClienteId?: number;
-    nome: string;
-    cpf: string;
-    criadoEm?: string;
-  }
-  
+  clienteId?: number;
+  nome: string;
+  cpf: string;
+  dataNascimento: string;
+  criadoEm?: string;
+}

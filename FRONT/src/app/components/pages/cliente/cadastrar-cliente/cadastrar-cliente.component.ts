@@ -15,7 +15,6 @@ export class CadastrarClienteComponent implements OnInit {
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
-  //ClienteId!: number;
 
   constructor(
     private http: HttpClient,
@@ -32,10 +31,10 @@ export class CadastrarClienteComponent implements OnInit {
           this.http
             .get<Cliente>(`https://localhost:5001/api/cliente/buscar/${id}`)
             .subscribe({
-              next: (Cliente) => {
+              next: (cliente) => {
                 this.id = id;
-                this.nome = Cliente.nome;
-                this.cpf = Cliente.cpf;
+                this.nome = cliente.nome;
+                this.cpf = cliente.cpf;
               },
             });
         }
@@ -45,9 +44,10 @@ export class CadastrarClienteComponent implements OnInit {
 
   alterar(): void {
     let cliente: Cliente = {
-      ClienteId: Number.parseInt(this.id),
+      clienteId: Number.parseInt(this.id),
       nome: this.nome,
       cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
     };
 
     this.http
@@ -67,6 +67,7 @@ export class CadastrarClienteComponent implements OnInit {
     let cliente: Cliente = {
       nome: this.nome,
       cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
     };
 
     this.http

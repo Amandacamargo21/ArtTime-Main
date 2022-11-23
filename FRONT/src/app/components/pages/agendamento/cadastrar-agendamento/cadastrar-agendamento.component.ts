@@ -13,14 +13,12 @@ import { Cliente } from "src/app/models/cliente";
 })
 export class CadastrarAgendamentoComponent implements OnInit {
   id!: number;
-  Pessoa!: string;
-  cpf!: string;
   LocalDaTattoo!: string;
   artistas!: Artista[];
   ArtistaId!: number;
   clientes!: Cliente[];
   ClienteId!: number;
-  data!: string;
+  dataAgendamento!: string;
 
   constructor(
     private http: HttpClient,
@@ -40,16 +38,16 @@ export class CadastrarAgendamentoComponent implements OnInit {
 
   cadastrar(): void {
     console.log(this.ArtistaId);
-    let dataConvertida = new Date(this.data);
+    let dataConvertida = new Date(this.dataAgendamento);
 
     let agendamento: Agendamento = {
-      Pessoa: this.Pessoa,
-      cpf: this.cpf,
       LocalDaTattoo: this.LocalDaTattoo,
-      Dia: dataConvertida.getDay(),
-      Mes: dataConvertida.getMonth() + 1,
-      Ano: dataConvertida.getFullYear(),
+      // Dia: dataConvertida.getDay(),
+      // Mes: dataConvertida.getMonth() + 1,
+      // Ano: dataConvertida.getFullYear(),
+      dataAgendamento: this.dataAgendamento,
       ArtistaId: this.ArtistaId,
+      ClienteId: this.ClienteId,
     };
 
     this.http
@@ -63,32 +61,6 @@ export class CadastrarAgendamentoComponent implements OnInit {
             horizontalPosition: "right",
             verticalPosition: "top",
           });
-          this.router.navigate(["pages/agendamento/listar"]);
-        },
-      });
-  }
-
-  alterar(): void {
-    console.log(this.id);
-    let dataConvertida = new Date(this.data);
-    let Agendamento: Agendamento = {
-      id: this.id,
-      Pessoa: this.Pessoa,
-      cpf: this.cpf,
-      LocalDaTattoo: this.LocalDaTattoo,
-      Dia: dataConvertida.getDay(),
-      Mes: dataConvertida.getMonth() + 1,
-      Ano: dataConvertida.getFullYear(),
-      ArtistaId: this.ArtistaId,
-    };
-
-    this.http
-      .patch<Agendamento>(
-        "https://localhost:5001/api/agendamento/alterar",
-        Agendamento
-      )
-      .subscribe({
-        next: (agendamento) => {
           this.router.navigate(["pages/agendamento/listar"]);
         },
       });

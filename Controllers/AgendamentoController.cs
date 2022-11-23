@@ -37,20 +37,20 @@ namespace ArtTime.AgendamentoController
             if (agendamentos.Count == 0) return NotFound();
 
             return Ok(agendamentos);
-            // return folhas.Count != 0 ? Ok(folhas) : NotFound();
         }
 
         // GET: /api/artista/buscar/{cpf}/{mes}/{ano}
         [HttpGet]
-        [Route("buscar/{cpf}/{mes}/{ano}")]
+        [Route("buscar/{cpf}/{dia}/{mes}/{ano}")]
         public IActionResult Buscar(
-            [FromRoute] string cpf, int mes, int ano
+            [FromRoute] string cpf, int dia, int mes, int ano
         ) =>
             Ok(_context.Agendamentos
                 .Include(a => a.Artista)
                 .FirstOrDefault(
                     a =>
-                    a.Artista.cpf.Equals(cpf) &&
+                    a.Artista.Cpf.Equals(cpf) &&
+                    a.Dia == dia &&
                     a.Mes == mes &&
                     a.Ano == ano
                 ));
@@ -62,7 +62,7 @@ namespace ArtTime.AgendamentoController
             [FromRoute] int mes, int ano
         ) =>
             Ok(_context.Agendamentos
-                .Include(f => f.Artista)
+                .Include(a => a.Artista)
                 .Where(
                     a =>
                     a.CriadoEm.Month == mes &&

@@ -15,7 +15,6 @@ export class CadastrarArtistaComponent implements OnInit {
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
-  // Artistaid!: string;
 
   constructor(
     private http: HttpClient,
@@ -45,7 +44,7 @@ export class CadastrarArtistaComponent implements OnInit {
 
   alterar(): void {
     let artista: Artista = {
-      ArtistaId: Number.parseInt(this.id),
+      artistaId: Number.parseInt(this.id),
       nome: this.nome,
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
