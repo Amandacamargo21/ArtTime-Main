@@ -5,7 +5,7 @@
   <mat-card-content>
     <mat-form-field id="clientes" class="input">
       <mat-label for="selClientes">Cliente</mat-label>
-      <mat-select [(ngModel)]="ClienteId">
+      <mat-select [(ngModel)]="clientes">
         <mat-option
           *ngFor="let cliente of clientes"
           value="{{ cliente.clienteId }}"

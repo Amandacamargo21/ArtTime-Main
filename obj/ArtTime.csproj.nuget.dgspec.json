@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amand\\ArtTime-Main-2\\ArtTime.csproj": {}
+    "C:\\Users\\amand\\ArtTime-Main-3\\ArtTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amand\\ArtTime-Main-2\\ArtTime.csproj": {
+    "C:\\Users\\amand\\ArtTime-Main-3\\ArtTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amand\\ArtTime-Main-2\\ArtTime.csproj",
+        "projectUniqueName": "C:\\Users\\amand\\ArtTime-Main-3\\ArtTime.csproj",
         "projectName": "ArtTime",
-        "projectPath": "C:\\Users\\amand\\ArtTime-Main-2\\ArtTime.csproj",
+        "projectPath": "C:\\Users\\amand\\ArtTime-Main-3\\ArtTime.csproj",
         "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amand\\ArtTime-Main-2\\obj\\",
+        "outputPath": "C:\\Users\\amand\\ArtTime-Main-3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amand\\AppData\\Roaming\\NuGet\\NuGet.Config"

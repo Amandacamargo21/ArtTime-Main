@@ -29,31 +29,18 @@ namespace ArtTime.AgendamentoController
         // GET: /api/agendamento/listar
         [HttpGet]
         [Route("listar")]
-        public IActionResult Listar()
-        {
-            List<Agendamento> agendamentos =
-                _context.Agendamentos.Include(a => a.Artista).ToList();
+        public IActionResult Listar() =>
+            Ok(_context.Agendamentos.ToList());
 
-            if (agendamentos.Count == 0) return NotFound();
-
-            return Ok(agendamentos);
-        }
-
-        // GET: /api/artista/buscar/{cpf}/{mes}/{ano}
+        [Route("buscar/{id}")]
         [HttpGet]
-        [Route("buscar/{cpf}/{dia}/{mes}/{ano}")]
-        public IActionResult Buscar(
-            [FromRoute] string cpf, int dia, int mes, int ano
-        ) =>
-            Ok(_context.Agendamentos
-                .Include(a => a.Artista)
-                .FirstOrDefault(
-                    a =>
-                    a.Artista.Cpf.Equals(cpf) &&
-                    a.Dia == dia &&
-                    a.Mes == mes &&
-                    a.Ano == ano
-                ));
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            Agendamento agendamento =
+                _context.Agendamentos.Find(id);
+            //IF ternário
+            return agendamento != null ? Ok(agendamento) : NotFound();
+        }
 
         // GET: /api/artista/filtrar/{mes}/{ano}
         [HttpGet]
