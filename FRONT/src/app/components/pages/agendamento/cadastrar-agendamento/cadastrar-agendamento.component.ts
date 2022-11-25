@@ -16,10 +16,9 @@ export class CadastrarAgendamentoComponent implements OnInit {
   LocalDaTattoo!: string;
   artistas!: Artista[];
   artista!: Artista;
-  ArtistaId!: number;
-  clientes!: Cliente[];
   cliente!: Cliente;
-  ClienteId!: number;
+  clientes!: Cliente[];
+  //clienteId!: number;
   dataAgendamento!: string;
 
   constructor(
@@ -47,18 +46,15 @@ export class CadastrarAgendamentoComponent implements OnInit {
   }
 
   cadastrar(): void {
-    // console.log(this.ArtistaId);
-    // console.log(this.ClienteId);
-    let dataConvertida = new Date(this.dataAgendamento);
+    console.log(this.artista);
+    console.log(this.cliente);
     let agendamento: Agendamento = {
       LocalDaTattoo: this.LocalDaTattoo,
       dataAgendamento: this.dataAgendamento,
-      ArtistaId: this.ArtistaId,
-      ClienteId: this.ClienteId,
       artista: this.artista,
       cliente: this.cliente,
     };
-
+    console.log(agendamento);
     this.http
       .post<Agendamento>(
         "https://localhost:5001/api/agendamento/cadastrar",

@@ -4,24 +4,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtTime.Models
 {
+
     public class Agendamento
     {
-        //Data Annotations
-
-        public Agendamento() => CriadoEm = DateTime.Now;
+        public Agendamento()
+        {
+            Artista = new Artista();
+            Cliente = new Cliente();
+            CriadoEm = DateTime.Now;
+        }
 
         [Key]
         public int Id { get; set; }
-        public string cpf { get; set; }
         public string localDaTattoo { get; set; }
-
-        public int ArtistaId { get; set; }
+        public string dataAgendamento { get; set; }
         public Artista Artista { get; set; }
-        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
-        public int Dia { get; set; }
-        public int Mes { get; set; }
-        public int Ano { get; set; }
         public DateTime CriadoEm { get; set; }
     }
 }
