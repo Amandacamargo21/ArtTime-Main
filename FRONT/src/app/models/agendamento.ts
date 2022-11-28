@@ -3,9 +3,11 @@ import { Artista } from "./artista";
 
 export interface Agendamento {
   id?: number;
-  LocalDaTattoo: string;
+  localDaTattoo: string;
   artista?: Artista;
   cliente?: Cliente;
+  artistaId: number;
+  clienteId: number;
   dataAgendamento: string;
   criadoEm?: string;
 }

@@ -13,12 +13,13 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class CadastrarAgendamentoComponent implements OnInit {
   id!: number;
-  LocalDaTattoo!: string;
+  localDaTattoo!: string;
   artistas!: Artista[];
-  artista!: Artista;
-  cliente!: Cliente;
+  //artista!: Artista;
+  //cliente!: Cliente;
   clientes!: Cliente[];
-  //clienteId!: number;
+  clienteId!: number;
+  artistaId!: number;
   dataAgendamento!: string;
 
   constructor(
@@ -46,13 +47,13 @@ export class CadastrarAgendamentoComponent implements OnInit {
   }
 
   cadastrar(): void {
-    console.log(this.artista);
-    console.log(this.cliente);
+    console.log(this.artistaId);
+    console.log(this.clienteId);
     let agendamento: Agendamento = {
-      LocalDaTattoo: this.LocalDaTattoo,
+      localDaTattoo: this.localDaTattoo,
       dataAgendamento: this.dataAgendamento,
-      artista: this.artista,
-      cliente: this.cliente,
+      artistaId: this.artistaId,
+      clienteId: this.clienteId,
     };
     console.log(agendamento);
     this.http
