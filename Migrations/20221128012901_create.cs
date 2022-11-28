@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtTime.Migrations
 {
-    public partial class a : Migration
+    public partial class create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace ArtTime.Migrations
                 name: "Artistas",
                 columns: table => new
                 {
-                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: false)
+                    artistaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     Cpf = table.Column<string>(type: "TEXT", nullable: true),
@@ -20,14 +20,14 @@ namespace ArtTime.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Artistas", x => x.ArtistaId);
+                    table.PrimaryKey("PK_Artistas", x => x.artistaId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Clientes",
                 columns: table => new
                 {
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false)
+                    clienteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     cpf = table.Column<string>(type: "TEXT", nullable: true),
@@ -35,7 +35,7 @@ namespace ArtTime.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteId);
+                    table.PrimaryKey("PK_Clientes", x => x.clienteId);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,36 +46,36 @@ namespace ArtTime.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     localDaTattoo = table.Column<string>(type: "TEXT", nullable: true),
                     dataAgendamento = table.Column<string>(type: "TEXT", nullable: true),
-                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
+                    artistaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    clienteId = table.Column<int>(type: "INTEGER", nullable: false),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Agendamentos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Agendamentos_Artistas_ArtistaId",
-                        column: x => x.ArtistaId,
+                        name: "FK_Agendamentos_Artistas_artistaId",
+                        column: x => x.artistaId,
                         principalTable: "Artistas",
-                        principalColumn: "ArtistaId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "artistaId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Agendamentos_Clientes_ClienteId",
-                        column: x => x.ClienteId,
+                        name: "FK_Agendamentos_Clientes_clienteId",
+                        column: x => x.clienteId,
                         principalTable: "Clientes",
-                        principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "clienteId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamentos_ArtistaId",
+                name: "IX_Agendamentos_artistaId",
                 table: "Agendamentos",
-                column: "ArtistaId");
+                column: "artistaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamentos_ClienteId",
+                name: "IX_Agendamentos_clienteId",
                 table: "Agendamentos",
-                column: "ClienteId");
+                column: "clienteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

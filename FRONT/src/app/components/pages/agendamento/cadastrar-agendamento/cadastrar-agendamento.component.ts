@@ -15,8 +15,8 @@ export class CadastrarAgendamentoComponent implements OnInit {
   id!: number;
   localDaTattoo!: string;
   artistas!: Artista[];
-  //artista!: Artista;
-  //cliente!: Cliente;
+  artista!: Artista;
+  cliente!: Cliente;
   clientes!: Cliente[];
   clienteId!: number;
   artistaId!: number;
@@ -54,6 +54,8 @@ export class CadastrarAgendamentoComponent implements OnInit {
       dataAgendamento: this.dataAgendamento,
       artistaId: this.artistaId,
       clienteId: this.clienteId,
+      artista: this.artista,
+      cliente: this.cliente,
     };
     console.log(agendamento);
     this.http

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtTime.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221127122521_a")]
-    partial class a
+    [Migration("20221128012901_create")]
+    partial class create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,14 +24,14 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ArtistaId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ClienteId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("artistaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("clienteId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("dataAgendamento")
                         .HasColumnType("TEXT");
@@ -41,16 +41,16 @@ namespace ArtTime.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistaId");
+                    b.HasIndex("artistaId");
 
-                    b.HasIndex("ClienteId");
+                    b.HasIndex("clienteId");
 
                     b.ToTable("Agendamentos");
                 });
 
             modelBuilder.Entity("ArtTime.Models.Artista", b =>
                 {
-                    b.Property<int>("ArtistaId")
+                    b.Property<int>("artistaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -66,14 +66,14 @@ namespace ArtTime.Migrations
                     b.Property<string>("dataNascimento")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ArtistaId");
+                    b.HasKey("artistaId");
 
                     b.ToTable("Artistas");
                 });
 
             modelBuilder.Entity("ArtTime.Models.Cliente", b =>
                 {
-                    b.Property<int>("ClienteId")
+                    b.Property<int>("clienteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -86,7 +86,7 @@ namespace ArtTime.Migrations
                     b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ClienteId");
+                    b.HasKey("clienteId");
 
                     b.ToTable("Clientes");
                 });
@@ -95,11 +95,15 @@ namespace ArtTime.Migrations
                 {
                     b.HasOne("ArtTime.Models.Artista", "Artista")
                         .WithMany()
-                        .HasForeignKey("ArtistaId");
+                        .HasForeignKey("artistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ArtTime.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("clienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Artista");
 
