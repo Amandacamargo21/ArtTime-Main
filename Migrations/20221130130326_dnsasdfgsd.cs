@@ -3,11 +3,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtTime.Migrations
 {
+<<<<<<< HEAD
 <<<<<<<< HEAD:Migrations/20221130153346_NEWDBA.cs
     public partial class NEWDBA : Migration
 ========
     public partial class dnsasdfgsd : Migration
 >>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f:Migrations/20221130130326_dnsasdfgsd.cs
+=======
+    public partial class dnsasdfgsd : Migration
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

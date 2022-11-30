@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtTime.Migrations
 {
     [DbContext(typeof(DataContext))]
+<<<<<<< HEAD
 <<<<<<<< HEAD:Migrations/20221130153346_NEWDBA.Designer.cs
     [Migration("20221130153346_NEWDBA")]
     partial class NEWDBA
@@ -16,6 +17,10 @@ namespace ArtTime.Migrations
     [Migration("20221130130326_dnsasdfgsd")]
     partial class dnsasdfgsd
 >>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f:Migrations/20221130130326_dnsasdfgsd.Designer.cs
+=======
+    [Migration("20221130130326_dnsasdfgsd")]
+    partial class dnsasdfgsd
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,8 +102,13 @@ namespace ArtTime.Migrations
 
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
+<<<<<<< HEAD
 <<<<<<<< HEAD:Migrations/20221130153346_NEWDBA.Designer.cs
 ========
+=======
+
+                    b.HasKey("clienteId");
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
 
                     b.HasKey("clienteId");
 >>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f:Migrations/20221130130326_dnsasdfgsd.Designer.cs

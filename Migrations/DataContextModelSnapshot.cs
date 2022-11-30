@@ -91,7 +91,12 @@ namespace ArtTime.Migrations
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+                    b.HasKey("clienteId");
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
 
                     b.HasKey("clienteId");
 >>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
