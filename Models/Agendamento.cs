@@ -13,7 +13,6 @@ namespace ArtTime.Models
         public int? artistaId { get; set; }
         public int? clienteId { get; set; }
         public Artista Artista { get; set; }
-        public int? clienteId { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime CriadoEm { get; set; }
         public Agendamento() => CriadoEm = DateTime.Now;

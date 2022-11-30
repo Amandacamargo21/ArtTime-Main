@@ -8,8 +8,8 @@ namespace ArtTime.Models
     {
         public Artista() => CriadoEm = DateTime.Now;
         public int artistaId { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
+        public string nome { get; set; }
+        public string cpf { get; set; }
         public string dataNascimento { get; set; }
         public DateTime CriadoEm { get; set; }
 
