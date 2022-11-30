@@ -33,8 +33,8 @@ export class CadastrarClienteComponent implements OnInit {
             .subscribe({
               next: (cliente) => {
                 this.id = id;
-                this.nome = cliente.nome;
-                this.cpf = cliente.cpf;
+                this.nome = this.nome;
+                this.cpf = this.cpf;
               },
             });
         }

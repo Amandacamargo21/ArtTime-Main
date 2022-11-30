@@ -7,19 +7,19 @@ namespace ArtTime.Models
 
     public class Agendamento
     {
-        public Agendamento()
-        {
-            Artista = new Artista();
-            Cliente = new Cliente();
-            CriadoEm = DateTime.Now;
-        }
+        // public Agendamento()
+        // {
+        //     Artista = new Artista();
+        //     Cliente = new Cliente();
+        //     CriadoEm = DateTime.Now;
+        // }
 
         [Key]
         public int Id { get; set; }
         public string localDaTattoo { get; set; }
         public string dataAgendamento { get; set; }
-        public int artistaId { get; set; }
-        public int clienteId { get; set; }
+        public int? artistaId { get; set; }
+        public int? clienteId { get; set; }
         public Artista Artista { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime CriadoEm { get; set; }

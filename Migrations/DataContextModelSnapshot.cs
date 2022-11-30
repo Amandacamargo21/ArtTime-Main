@@ -52,16 +52,16 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Cpf")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("artistaId");
@@ -78,13 +78,13 @@ namespace ArtTime.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("clienteId");

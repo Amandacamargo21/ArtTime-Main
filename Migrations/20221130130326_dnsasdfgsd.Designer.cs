@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtTime.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221128015401_dn")]
-    partial class dn
+    [Migration("20221130130326_dnsasdfgsd")]
+    partial class dnsasdfgsd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,16 +54,16 @@ namespace ArtTime.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Cpf")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("artistaId");
@@ -80,13 +80,13 @@ namespace ArtTime.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("cpf")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("clienteId");

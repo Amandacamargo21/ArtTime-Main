@@ -54,8 +54,8 @@ export class CadastrarAgendamentoComponent implements OnInit {
       dataAgendamento: this.dataAgendamento,
       artistaId: this.artistaId,
       clienteId: this.clienteId,
-      artista: this.artista,
-      cliente: this.cliente,
+      // artista: this.artista,
+      // cliente: this.cliente,
     };
     console.log(agendamento);
     this.http

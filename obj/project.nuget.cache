@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lRfUb6+EhEZauF73YG8I2kD53cREQddbZzVyRFb+hE1GgJm4LXJxkMiKfsSRE/RDYxWa8jl7RkEBsu5udTUVOw==",
+  "dgSpecHash": "HIBuEidHoGkgshnNPp3qu4R2uOiSZ/IZMir/vE1rSkZKhSmm5H71mPS+rXC/WI3zJ4orQ1jH7JCAsiVBVCiW6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\ArtTime.csproj",
+  "projectFilePath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\ArtTime.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amand\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\amand\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

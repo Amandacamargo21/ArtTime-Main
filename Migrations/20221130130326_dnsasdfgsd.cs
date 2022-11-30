@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtTime.Migrations
 {
-    public partial class create : Migration
+    public partial class dnsasdfgsd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace ArtTime.Migrations
                 {
                     artistaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
+                    cpf = table.Column<string>(type: "TEXT", nullable: true),
                     dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -29,8 +29,9 @@ namespace ArtTime.Migrations
                 {
                     clienteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
                     cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

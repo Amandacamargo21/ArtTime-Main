@@ -33,8 +33,8 @@ export class CadastrarArtistaComponent implements OnInit {
             .subscribe({
               next: (Artista) => {
                 this.id = id;
-                this.nome = Artista.nome;
-                this.cpf = Artista.cpf;
+                this.nome = this.nome;
+                this.cpf = this.cpf;
               },
             });
         }
