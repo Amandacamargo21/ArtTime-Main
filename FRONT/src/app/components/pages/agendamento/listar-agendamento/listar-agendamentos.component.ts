@@ -12,10 +12,8 @@ export class ListarAgendamentoComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    //Configuração da requisição
     this.http
       .get<Agendamento[]>("https://localhost:5001/api/agendamento/listar")
-      // Execução da requisição
       .subscribe({
         next: (agendamentos) => {
           this.agendamentos = agendamentos;

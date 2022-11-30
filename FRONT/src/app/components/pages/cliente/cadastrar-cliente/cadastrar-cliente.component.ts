@@ -10,11 +10,12 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   styleUrls: ["./cadastrar-cliente.component.css"],
 })
 export class CadastrarClienteComponent implements OnInit {
-  id!: string;
+  id!: number | undefined;
   nome!: string;
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
+  clientes!: Cliente[];
 
   constructor(
     private http: HttpClient,
@@ -24,56 +25,29 @@ export class CadastrarClienteComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe({
-      next: (params) => {
-        let { id } = params;
-        if (id !== undefined) {
-          this.http
-            .get<Cliente>(`https://localhost:5001/api/cliente/buscar/${id}`)
-            .subscribe({
-              next: (cliente) => {
-                this.id = id;
-                this.nome = cliente.nome;
-                this.cpf = cliente.cpf;
-              },
-            });
-        }
-      },
+    this.route.params.subscribe((params) => {
+      let { id } = params;
+      if (id !== undefined) {
+        this.id = id;
+        this.http
+          .get<Cliente[]>("https://localhost:5001/api/cliente/listar")
+          .subscribe({
+            next: (cliente) => {
+              this.clientes = this.clientes;
+            },
+          });
+      }
     });
   }
-
-  alterar(): void {
-    let cliente: Cliente = {
-      clienteId: Number.parseInt(this.id),
-      nome: this.nome,
-      cpf: this.cpf,
-      dataNascimento: this.dataNascimento,
-    };
-
-    this.http
-      .patch<Cliente>("https://localhost:5001/api/cliente/alterar", cliente)
-      .subscribe({
-        next: (cliente) => {
-          this._snackBar.open("Cliente alterado!", "Ok!", {
-            horizontalPosition: "right",
-            verticalPosition: "top",
-          });
-          this.router.navigate(["pages/cliente/listar"]);
-        },
-      });
-  }
-
   cadastrar(): void {
     let cliente: Cliente = {
+      id: this.id,
       nome: this.nome,
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
     };
-
     this.http
       .post<Cliente>("https://localhost:5001/api/cliente/cadastrar", cliente)
-
-      //Executar a requisição
       .subscribe({
         next: (cliente) => {
           this._snackBar.open("Cliente cadastrado!", "Ok!", {
@@ -83,12 +57,30 @@ export class CadastrarClienteComponent implements OnInit {
           this.router.navigate(["pages/cliente/listar"]);
         },
         error: (error) => {
-          //Executa o que for necessario quando a requisição for mal sucedida
           if (error.status === 400) {
             this.mensagem = "Algum erro de validação aconteceu :/";
           } else if (error.status === 0) {
             this.mensagem = "A sua API não está rodando :/";
           }
+        },
+      });
+  }
+  alterar(): void {
+    let cliente: Cliente = {
+      id: this.id,
+      nome: this.nome,
+      cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
+    };
+    this.http
+      .patch<Cliente>("https://localhost:5001/api/cliente/alterar", cliente)
+      .subscribe({
+        next: (cliente) => {
+          this._snackBar.open("Cliente alterado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
+          this.router.navigate(["pages/cliente/listar"]);
         },
       });
   }

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtTime.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221128015401_dn")]
-    partial class dn
+    [Migration("20221130153346_NEWDBA")]
+    partial class NEWDBA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,10 +27,10 @@ namespace ArtTime.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("artistaId")
+                    b.Property<int?>("artistaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("clienteId")
+                    b.Property<int?>("clienteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("dataAgendamento")
@@ -45,42 +45,16 @@ namespace ArtTime.Migrations
 
                     b.HasIndex("clienteId");
 
-                    b.ToTable("Agendamentos");
+                    b.ToTable("Agendamento");
                 });
 
             modelBuilder.Entity("ArtTime.Models.Artista", b =>
                 {
-                    b.Property<int>("artistaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Cpf")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("dataNascimento")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("artistaId");
-
-                    b.ToTable("Artistas");
-                });
-
-            modelBuilder.Entity("ArtTime.Models.Cliente", b =>
-                {
-                    b.Property<int>("clienteId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CriadoEm")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("cpf")
@@ -89,24 +63,46 @@ namespace ArtTime.Migrations
                     b.Property<string>("dataNascimento")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("clienteId");
+                    b.Property<string>("nome")
+                        .HasColumnType("TEXT");
 
-                    b.ToTable("Clientes");
+                    b.HasKey("Id");
+
+                    b.ToTable("Artista");
+                });
+
+            modelBuilder.Entity("ArtTime.Models.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("cpf")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("ArtTime.Models.Agendamento", b =>
                 {
                     b.HasOne("ArtTime.Models.Artista", "Artista")
                         .WithMany()
-                        .HasForeignKey("artistaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("artistaId");
 
                     b.HasOne("ArtTime.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("clienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("clienteId");
 
                     b.Navigation("Artista");
 

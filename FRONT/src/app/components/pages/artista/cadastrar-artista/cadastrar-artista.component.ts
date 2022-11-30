@@ -10,11 +10,12 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   styleUrls: ["./cadastrar-artista.component.css"],
 })
 export class CadastrarArtistaComponent implements OnInit {
-  id!: string;
+  id!: number | undefined;
   nome!: string;
   cpf!: string;
   dataNascimento!: string;
   mensagem!: string;
+  artistas!: Artista[];
 
   constructor(
     private http: HttpClient,
@@ -24,27 +25,51 @@ export class CadastrarArtistaComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe({
-      next: (params) => {
-        let { id } = params;
-        if (id !== undefined) {
-          this.http
-            .get<Artista>(`https://localhost:5001/api/artista/buscar/${id}`)
-            .subscribe({
-              next: (Artista) => {
-                this.id = id;
-                this.nome = Artista.nome;
-                this.cpf = Artista.cpf;
-              },
-            });
-        }
-      },
+    this.route.params.subscribe((params) => {
+      let { id } = params;
+      if (id !== undefined) {
+        this.id = id;
+        this.http
+          .get<Artista[]>("https://localhost:5001/api/artista/listar")
+          .subscribe({
+            next: (artista) => {
+              this.artistas = this.artistas;
+            },
+          });
+      }
     });
   }
 
+  cadastrar(): void {
+    let artista: Artista = {
+      id: this.id,
+      nome: this.nome,
+      cpf: this.cpf,
+      dataNascimento: this.dataNascimento,
+    };
+
+    this.http
+      .post<Artista>("https://localhost:5001/api/artista/cadastrar", artista)
+      .subscribe({
+        next: (artista) => {
+          this._snackBar.open("Artista cadastrado!", "Ok!", {
+            horizontalPosition: "right",
+            verticalPosition: "top",
+          });
+          this.router.navigate(["pages/artista/listar"]);
+        },
+        error: (error) => {
+          if (error.status === 400) {
+            this.mensagem = "Algum erro de validação aconteceu :/";
+          } else if (error.status === 0) {
+            this.mensagem = "A sua API não está rodando :/";
+          }
+        },
+      });
+  }
   alterar(): void {
     let artista: Artista = {
-      artistaId: Number.parseInt(this.id),
+      id: this.id,
       nome: this.nome,
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
@@ -59,36 +84,6 @@ export class CadastrarArtistaComponent implements OnInit {
             verticalPosition: "top",
           });
           this.router.navigate(["pages/artista/listar"]);
-        },
-      });
-  }
-
-  cadastrar(): void {
-    let artista: Artista = {
-      nome: this.nome,
-      cpf: this.cpf,
-      dataNascimento: this.dataNascimento,
-    };
-
-    this.http
-      .post<Artista>("https://localhost:5001/api/artista/cadastrar", artista)
-
-      //Executar a requisição
-      .subscribe({
-        next: (artista) => {
-          this._snackBar.open("Artista cadastrado!", "Ok!", {
-            horizontalPosition: "right",
-            verticalPosition: "top",
-          });
-          this.router.navigate(["pages/artista/listar"]);
-        },
-        error: (error) => {
-          //Executa o que for necessario quando a requisição for mal sucedida
-          if (error.status === 400) {
-            this.mensagem = "Algum erro de validação aconteceu :/";
-          } else if (error.status === 0) {
-            this.mensagem = "A sua API não está rodando :/";
-          }
         },
       });
   }

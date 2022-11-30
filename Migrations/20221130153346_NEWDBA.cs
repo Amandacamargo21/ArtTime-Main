@@ -3,91 +3,92 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtTime.Migrations
 {
-    public partial class create : Migration
+    public partial class NEWDBA : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Artistas",
+                name: "Artista",
                 columns: table => new
                 {
-                    artistaId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
+                    cpf = table.Column<string>(type: "TEXT", nullable: true),
                     dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Artistas", x => x.artistaId);
+                    table.PrimaryKey("PK_Artista", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Cliente",
                 columns: table => new
                 {
-                    clienteId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
                     cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    dataNascimento = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.clienteId);
+                    table.PrimaryKey("PK_Cliente", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Agendamentos",
+                name: "Agendamento",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     localDaTattoo = table.Column<string>(type: "TEXT", nullable: true),
                     dataAgendamento = table.Column<string>(type: "TEXT", nullable: true),
-                    artistaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    clienteId = table.Column<int>(type: "INTEGER", nullable: false),
+                    artistaId = table.Column<int>(type: "INTEGER", nullable: true),
+                    clienteId = table.Column<int>(type: "INTEGER", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Agendamentos", x => x.Id);
+                    table.PrimaryKey("PK_Agendamento", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Agendamentos_Artistas_artistaId",
+                        name: "FK_Agendamento_Artista_artistaId",
                         column: x => x.artistaId,
-                        principalTable: "Artistas",
-                        principalColumn: "artistaId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Artista",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Agendamentos_Clientes_clienteId",
+                        name: "FK_Agendamento_Cliente_clienteId",
                         column: x => x.clienteId,
-                        principalTable: "Clientes",
-                        principalColumn: "clienteId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalTable: "Cliente",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamentos_artistaId",
-                table: "Agendamentos",
+                name: "IX_Agendamento_artistaId",
+                table: "Agendamento",
                 column: "artistaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendamentos_clienteId",
-                table: "Agendamentos",
+                name: "IX_Agendamento_clienteId",
+                table: "Agendamento",
                 column: "clienteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Agendamentos");
+                name: "Agendamento");
 
             migrationBuilder.DropTable(
-                name: "Artistas");
+                name: "Artista");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Cliente");
         }
     }
 }

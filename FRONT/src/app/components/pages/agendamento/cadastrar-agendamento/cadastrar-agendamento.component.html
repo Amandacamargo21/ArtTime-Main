@@ -6,11 +6,8 @@
     <mat-form-field id="clientes" class="input">
       <mat-label for="selClientes">Cliente</mat-label>
       <mat-select [(ngModel)]="clienteId">
-        <mat-option
-          *ngFor="let cliente of clientes"
-          value="{{ cliente.clienteId }}"
-        >
-          {{ cliente.clienteId }} - {{ cliente.nome }}
+        <mat-option *ngFor="let cliente of clientes" value="{{ cliente.id }}">
+          {{ cliente.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -18,14 +15,8 @@
     <mat-form-field id="artistas" class="input">
       <mat-label for="selArtistas">Artista</mat-label>
       <mat-select [(ngModel)]="artistaId">
-        <mat-option
-          *ngFor="let artista of artistas"
-          value="{{ artista.artistaId }}"
-        >
-          {{ artista.artistaId }} - {{ artista.nome }}
-          <script>
-            console.log(artista.nome);
-          </script>
+        <mat-option *ngFor="let artista of artistas" value="{{ artista.id }}">
+          {{ artista.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -48,7 +39,7 @@
 
   <button
     mat-raised-button
-    color="warn"
+    color="accent"
     *ngIf="!id"
     id="btnCadastrar"
     (click)="cadastrar()"

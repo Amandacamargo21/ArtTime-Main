@@ -12,16 +12,23 @@
   </tr>
 
   <tr *ngFor="let cliente of clientes">
-    <td>{{ cliente.clienteId }}</td>
+    <td>{{ cliente.id }}</td>
     <td>{{ cliente.nome }}</td>
     <td>{{ cliente.cpf }}</td>
     <td>{{ cliente.dataNascimento | date: "dd/MM/yyyy" }}</td>
     <td>{{ cliente.criadoEm | date: "dd/MM/yyyy" }}</td>
     <td>
-      <button (click)="remover(cliente.clienteId!)">Remover</button>
+      <button
+        mat-raised-button
+        color="warn"
+        id="btnRemover"
+        (click)="remover(cliente.id!)"
+      >
+        Remover
+      </button>
     </td>
     <td>
-      <a routerLink="/pages/cliente/listar {{ cliente.clienteId }}">Alterar</a>
+      <a routerLink="/pages/cliente/listar {{ cliente.id }}">Alterar</a>
     </td>
   </tr>
 </table>

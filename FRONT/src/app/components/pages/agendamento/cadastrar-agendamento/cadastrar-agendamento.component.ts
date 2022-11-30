@@ -15,12 +15,11 @@ export class CadastrarAgendamentoComponent implements OnInit {
   id!: number;
   localDaTattoo!: string;
   artistas!: Artista[];
-  artista!: Artista;
-  cliente!: Cliente;
   clientes!: Cliente[];
   clienteId!: number;
   artistaId!: number;
   dataAgendamento!: string;
+  //cliente = {} as Cliente;
 
   constructor(
     private http: HttpClient,
@@ -37,6 +36,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
           this.artistas = artistas;
         },
       });
+
     this.http
       .get<Cliente[]>("https://localhost:5001/api/cliente/listar")
       .subscribe({
@@ -47,17 +47,13 @@ export class CadastrarAgendamentoComponent implements OnInit {
   }
 
   cadastrar(): void {
-    console.log(this.artistaId);
-    console.log(this.clienteId);
     let agendamento: Agendamento = {
       localDaTattoo: this.localDaTattoo,
       dataAgendamento: this.dataAgendamento,
       artistaId: this.artistaId,
       clienteId: this.clienteId,
-      artista: this.artista,
-      cliente: this.cliente,
     };
-    console.log(agendamento);
+
     this.http
       .post<Agendamento>(
         "https://localhost:5001/api/agendamento/cadastrar",
@@ -65,10 +61,11 @@ export class CadastrarAgendamentoComponent implements OnInit {
       )
       .subscribe({
         next: (agendamento) => {
-          this._snackBar.open("Agendamento cadastrado!", "Ok!", {
-            horizontalPosition: "right",
-            verticalPosition: "top",
-          });
+          this.ngOnInit();
+          // this._snackBar.open("Agendamento cadastrado!", "Ok!", {
+          //   horizontalPosition: "right",
+          //   verticalPosition: "top",
+          // });
           this.router.navigate(["pages/agendamento/listar"]);
         },
       });

@@ -14,12 +14,11 @@ namespace ArtTime.ArtistaController
 
         public ArtistaController(DataContext context) =>
             _context = context;
-        private static List<Artista> artistas = new List<Artista>();
 
         [HttpGet]
         [Route("listar")]
         public IActionResult Listar() =>
-            Ok(_context.Artistas.ToList());
+            Ok(_context.Artista.ToList());
 
 
         //POST:  /api/artista/cadastrar
@@ -27,9 +26,9 @@ namespace ArtTime.ArtistaController
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Artista artista)
         {
-            _context.Artistas.Add(artista);
+            _context.Artista.Add(artista);
             _context.SaveChanges();
-            return Created("", artistas);
+            return Created("", artista);
         }
 
 
@@ -39,10 +38,11 @@ namespace ArtTime.ArtistaController
 
         public IActionResult Deletar([FromRoute] int id)
         {
-            Artista artista = _context.Artistas.Find(id);
+            Artista artista = _context.Artista.Find(id);
+
             if (artista != null)
             {
-                _context.Artistas.Remove(artista);
+                _context.Artista.Remove(artista);
                 _context.SaveChanges();
                 return Ok(artista);
             }
@@ -54,7 +54,8 @@ namespace ArtTime.ArtistaController
         [HttpPatch]
         public IActionResult Alterar([FromBody] Artista artista)
         {
-            _context.Artistas.Update(artista);
+            _context.Artista.Update(artista);
+            _context.Artista.Find(artista.Id);
             _context.SaveChanges();
             return Ok(artista);
         }
@@ -65,8 +66,7 @@ namespace ArtTime.ArtistaController
         public IActionResult Buscar([FromRoute] int id)
         {
             Artista artista =
-                _context.Artistas.Find(id);
-            //IF ternário
+                _context.Artista.Find(id);
             return artista != null ? Ok(artista) : NotFound();
         }
     }
