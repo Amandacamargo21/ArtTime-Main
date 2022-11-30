@@ -9,7 +9,7 @@ namespace ArtTime.Models
     public class Cliente
     {
         public Cliente() => CriadoEm = DateTime.Now;
-        public int Id { get; set; }
+        public int? clienteId { get; set; }
         public string nome { get; set; }
         public string cpf { get; set; }
         public string dataNascimento { get; set; }

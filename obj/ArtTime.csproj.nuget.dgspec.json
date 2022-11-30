@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\ArtTime.csproj": {}
+    "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\ArtTime.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\ArtTime.csproj": {
+    "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\ArtTime.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\ArtTime.csproj",
+        "projectUniqueName": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\ArtTime.csproj",
         "projectName": "ArtTime",
-        "projectPath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\ArtTime.csproj",
+        "projectPath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\ArtTime.csproj",
         "packagesPath": "C:\\Users\\amand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime-Main\\obj\\",
+        "outputPath": "C:\\Users\\amand\\OneDrive\\Desktop\\ArtTime git\\ArtTime-Main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amand\\AppData\\Roaming\\NuGet\\NuGet.Config"

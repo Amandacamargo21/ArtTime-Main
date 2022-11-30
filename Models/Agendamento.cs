@@ -11,6 +11,7 @@ namespace ArtTime.Models
         public string localDaTattoo { get; set; }
         public string dataAgendamento { get; set; }
         public int? artistaId { get; set; }
+        public int? clienteId { get; set; }
         public Artista Artista { get; set; }
         public int? clienteId { get; set; }
         public Cliente Cliente { get; set; }

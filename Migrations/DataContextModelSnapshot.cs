@@ -48,7 +48,10 @@ namespace ArtTime.Migrations
 
             modelBuilder.Entity("ArtTime.Models.Artista", b =>
                 {
+<<<<<<< HEAD
                     b.Property<int>("Id")
+=======
+                    b.Property<int>("artistaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -63,6 +66,35 @@ namespace ArtTime.Migrations
 
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
+
+                    b.HasKey("artistaId");
+
+                    b.ToTable("Artistas");
+                });
+
+            modelBuilder.Entity("ArtTime.Models.Cliente", b =>
+                {
+                    b.Property<int>("clienteId")
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("cpf")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("dataNascimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("nome")
+                        .HasColumnType("TEXT");
+<<<<<<< HEAD
+=======
+
+                    b.HasKey("clienteId");
+>>>>>>> a8553f0df7c4c15ea7488f37427dde611ceefe2f
 
                     b.HasKey("Id");
 
